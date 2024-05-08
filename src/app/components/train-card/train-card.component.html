@@ -1,0 +1,17 @@
+<div class="card">
+  <!-- <div class="card-header">Featured</div> -->
+  <div class="card-body">
+    <h5 class="card-title">Train name: {{ trainData.TrainName }}</h5>
+    <p class="card-text">
+      Train number: {{ trainData.TrainNumber }} <br />
+      Arrival:
+      {{ trainData.Arrival }} <br />
+      Departure: {{ trainData.Departure }} <br />
+      Source:
+      {{ trainData.Source }} <br />
+      Destination:
+      {{ trainData.Destination }}
+    </p>
+    <a class="pointer btn btn-primary" (click)="handleBook()">Book now</a>
+  </div>
+</div>

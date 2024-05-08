@@ -1,0 +1,60 @@
+<div class="topHeader p-4">
+  <div class="d-flex gap-4 align-items-center h-100">
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="inputGroupSelect01"
+        >From station</label
+      >
+      <select
+        class="form-select"
+        [(ngModel)]="fromStation"
+        id="inputGroupSelect01"
+      >
+        <option selected>Choose...</option>
+        <option *ngFor="let station of stationList" [value]="station.stationID">
+          {{ station.stationName }}
+        </option>
+      </select>
+    </div>
+
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="inputGroupSelect01"
+        >To station</label
+      >
+      <select
+        class="form-select"
+        [(ngModel)]="toStation"
+        id="inputGroupSelect01"
+      >
+        <option selected>Choose...</option>
+        <option *ngFor="let station of stationList" [value]="station.stationID">
+          {{ station.stationName }}
+        </option>
+      </select>
+    </div>
+
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="inputGroupFile01"
+        >Date of travel</label
+      >
+      <input
+        type="date"
+        class="form-control"
+        id="inputGroupFile01"
+        [(ngModel)]="date"
+      />
+    </div>
+    <button class="btn btn-success mb-3" (click)="searchTrains()">
+      Search
+    </button>
+  </div>
+</div>
+<div class="d-flex flex-column container gap-4 mt-4">
+  <div *ngFor="let train of trainsList">
+    <app-train-card
+      [trainData]="train"
+      (selectedTrain)="handleSelectTrain($event)"
+    ></app-train-card>
+  </div>
+</div>
+
+<app-booking-modal [selectedTrain]="selectedTrain"></app-booking-modal>

@@ -1,0 +1,58 @@
+<h1 class="text-center fw-bold">Book Ticket</h1>
+<div
+  class="container d-flex flex-column-reverse flex-sm-row w-100 gap-4 mt-4 justify-content-center"
+>
+  <div class="w-50">
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="inputGroupSelect01"
+        >From station</label
+      >
+      <select
+        class="form-select"
+        [(ngModel)]="fromStation"
+        id="inputGroupSelect01"
+      >
+        <option selected>Choose...</option>
+        <option *ngFor="let station of stationList" [value]="station.stationID">
+          {{ station.stationName }}
+        </option>
+      </select>
+    </div>
+
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="inputGroupSelect01"
+        >To station</label
+      >
+      <select
+        class="form-select"
+        [(ngModel)]="toStation"
+        id="inputGroupSelect01"
+      >
+        <option selected>Choose...</option>
+        <option *ngFor="let station of stationList" [value]="station.stationID">
+          {{ station.stationName }}
+        </option>
+      </select>
+    </div>
+
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="inputGroupFile01"
+        >Date of travel</label
+      >
+      <input
+        type="date"
+        class="form-control"
+        id="inputGroupFile01"
+        [(ngModel)]="date"
+      />
+    </div>
+    <button class="btn btn-success" (click)="searchTrains()">Search</button>
+  </div>
+  <div class="w-50">
+    <img
+      class="img-container"
+      src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?q=80&w=1884&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt=""
+    />
+  </div>
+</div>

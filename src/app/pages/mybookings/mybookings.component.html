@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <div *ngIf="bookings.length > 0">
+    <h2>My bookings</h2>
+    <div class="d-flex gap-4">
+      <div
+        *ngFor="let booking of bookings; index as i"
+        class="card"
+        style="width: 18rem"
+      >
+        <div class="card-body">
+          <h5 class="card-title">Train name : {{ booking.TrainName }}</h5>
+          <p class="card-text">
+            Number of passenger : {{ booking.passengers.length }} <br />
+            Total amount : ${{ booking.totalAmount }} <br />
+            Booking Time : {{ booking.time }} <br />
+            Destination : {{ booking.Destination }} <br />
+            Source : {{ booking.Source }} <br />
+          </p>
+          <button class="btn btn-secondary" (click)="cancelBooking(i)">
+            Cancel Booking
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="bookings.length === 0">
+    <h2>No bookings</h2>
+  </div>
+</div>

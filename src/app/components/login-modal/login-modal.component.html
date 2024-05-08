@@ -1,0 +1,53 @@
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Login user</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="closeLoginModal()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form #formsFor="ngForm" (ngSubmit)="handleLogin()">
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Phone</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputPassword1"
+              name="phone"
+              [(ngModel)]="userDetails.phone"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Password</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+              name="password"
+              [(ngModel)]="userDetails.password"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
